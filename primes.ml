@@ -1,4 +1,5 @@
 let is_prime n = 
+	let n = abs n in
     let rec not_div_from d = 
 	    d * d > n || 
 		(n mod d <> 0 && not_div_from (d+1))
