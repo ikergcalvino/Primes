@@ -1,20 +1,20 @@
 let is_prime n = 
-	let n = abs n in
-    let rec not_div_from d = 
-	    d * d > n || 
-		(n mod d <> 0 && not_div_from (d+1))
-    in
-    n > 1 && not_div_from 2;;
+	if (n mod 2 <> 0)
+		then let n = abs n in
+			let rec not_div_from d = 
+				d * d > n || (n mod d <> 0 && not_div_from (d+2))
+			in n > 1 && not_div_from 3
+		else false;;
 
 	
 let rec next_prime n = 
-    let n = succ n in
-	if is_prime n then n else next_prime n;;
+	let n = succ n in
+		if is_prime n then n else next_prime n;;
 
 	
 let rec prev_prime	n = (* n > 2 *)
 	let n = pred n in
-    if is_prime n then n else prev_prime n;;
+		if is_prime n then n else prev_prime n;;
 	
 	
 let rec primes_between m n = 
